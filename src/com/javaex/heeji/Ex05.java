@@ -12,8 +12,17 @@ public class Ex05 {
 		int num = sc.nextInt();
 		
 		//역피라미드
-		for(int i=1; i<=num; i++) {
+		for(int i=num; i>0; i--) {
 			
+			for(int j=num-i; j>0; j--) {
+				System.out.print(" ");
+			}
+			for(int k=i*2-1; k>0; k--) {
+				System.out.print("*");
+			}
+			System.out.println();
 		}
+		
+		sc.close();
 	}
 }
