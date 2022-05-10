@@ -15,7 +15,7 @@ public class Menu {
 	private String name;
 	private int price;
 	private int new_menu;
-	List<Menu> menuList;
+	private List<Menu> menuList;
 	
 	
 	
@@ -54,7 +54,7 @@ public class Menu {
 	
 	//메소드 일반
 	public void readMenu() throws IOException {
-		InputStream is = new FileInputStream("./star.txt");
+		InputStream is = new FileInputStream("./menuDB.txt");
 		InputStreamReader isr = new InputStreamReader(is, "UTF-8");
 		BufferedReader br = new BufferedReader(isr);
 		
@@ -86,9 +86,9 @@ public class Menu {
 		int i = 1;
 		for(Menu m : menuList) {
 			if(m.getNew_menu() == 0) {
-				System.out.println(i+"."+m.getName()+"\t가격: "+m.getPrice());
+				System.out.println(i+"."+m.getName()+"  가격: "+m.getPrice());
 			} else {
-				System.out.println("[new]"+i+"."+m.getName()+"\t가격: "+m.getPrice());
+				System.out.println("[new]"+i+"."+m.getName()+"  가격: "+m.getPrice());
 			}
 			i++;
 		}
@@ -96,7 +96,7 @@ public class Menu {
 	}
 	
 	
-	public void order(Menu m) {
+	public int order(Menu m) {
 		Scanner sc = new Scanner(System.in);
 		int total = 0;
 		
@@ -105,7 +105,8 @@ public class Menu {
 			int num = sc.nextInt();
 			
 			if(num == 0) {
-				break;
+				sc.close();
+				return total;
 			}
 			
 			System.out.println("갯수> ");
@@ -113,9 +114,6 @@ public class Menu {
 			
 			total += m.menuList.get(num-1).getPrice()*count;
 		}
-		
-		System.out.println(total);
-		sc.close();
 	}
 	
 }
