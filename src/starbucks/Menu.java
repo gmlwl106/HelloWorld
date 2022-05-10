@@ -54,7 +54,7 @@ public class Menu {
 	
 	//메소드 일반
 	public void readMenu() throws IOException {
-		InputStream is = new FileInputStream("./star-copy.txt");
+		InputStream is = new FileInputStream("./star.txt");
 		InputStreamReader isr = new InputStreamReader(is, "UTF-8");
 		BufferedReader br = new BufferedReader(isr);
 		
@@ -83,12 +83,14 @@ public class Menu {
 	
 	public void showMenu() {
 		System.out.println("===========================================================");
+		int i = 1;
 		for(Menu m : menuList) {
 			if(m.getNew_menu() == 0) {
-				System.out.println(m.getName()+"\t가격: "+m.getPrice());
+				System.out.println(i+"."+m.getName()+"\t가격: "+m.getPrice());
 			} else {
-				System.out.println("[new]"+m.getName()+"\t가격: "+m.getPrice());
+				System.out.println("[new]"+i+"."+m.getName()+"\t가격: "+m.getPrice());
 			}
+			i++;
 		}
 		System.out.println("===========================================================");
 	}
@@ -99,7 +101,7 @@ public class Menu {
 		int total = 0;
 		
 		while(true) {
-			System.out.print("주문할 메뉴를 선택하세요(1~6, 종료:0)> ");
+			System.out.print("주문할 메뉴를 선택하세요(종료:0)> ");
 			int num = sc.nextInt();
 			
 			if(num == 0) {
