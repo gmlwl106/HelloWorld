@@ -54,7 +54,7 @@ public class Menu {
 	
 	//메소드 일반
 	public void readMenu() throws IOException {
-		InputStream is = new FileInputStream("C:\\javaStudy\\File\\star-copy.txt");
+		InputStream is = new FileInputStream("./star-copy.txt");
 		InputStreamReader isr = new InputStreamReader(is, "UTF-8");
 		BufferedReader br = new BufferedReader(isr);
 		
