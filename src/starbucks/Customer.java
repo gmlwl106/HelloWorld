@@ -1,12 +1,5 @@
 package starbucks;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.List;
-
 public class Customer {
 
 	//필드
@@ -14,7 +7,6 @@ public class Customer {
 	private String phone;
 	private int cash;
 	private int star;
-	private List<Customer> cList;
 	
 	
 	
@@ -58,24 +50,7 @@ public class Customer {
 	
 	
 	//메소드 일반
-	public void readCustomerDB() throws IOException {
-		InputStream is = new FileInputStream("./customerDB.txt");
-		InputStreamReader isr = new InputStreamReader(is, "UTF-8");
-		BufferedReader br = new BufferedReader(isr);
-		
-		while(true) {
-			String readDb = br.readLine();
-			
-			if(readDb == null) {
-				break;
-			}
-			
-			String[] cus = readDb.split(",");
-			cList.add(new Customer(cus[0],cus[1],Integer.parseInt(cus[2]),Integer.parseInt(cus[3])));
-		}
 
-		br.close();
-	}
 	
 	
 	
