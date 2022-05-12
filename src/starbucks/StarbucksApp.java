@@ -1,10 +1,12 @@
 package starbucks;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
+import java.io.Writer;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -68,6 +70,7 @@ public class StarbucksApp {
 			}
 			
 			if(customer != null) {
+				//결제하고 잔액 출력
 				if(customer.getCash() >= total) {
 					customer.setCash(customer.getCash()-total);
 					System.out.println("잔액은 ["+customer.getCash()+"원] 입니다.");
@@ -83,17 +86,31 @@ public class StarbucksApp {
 		
 			//고객이 아닐때
 		} else if(yn.equals("n")) {
-			System.out.println("회원 등록 하시겠습니까?-> ");
+			System.out.print("회원 등록 하시겠습니까?(y/n)-> ");
 			String yesno = sc.nextLine();
 			
-			System.out.println("<회원 등록>");
-			System.out.println("이름> ");
-			System.out.println("휴대폰번호>");
-			System.out.println("충전할 금액>");
 			if(yesno.equals("y")) {
+				System.out.println("<회원 등록>");
+				System.out.print("이름> ");
+				String addName = sc.nextLine();
+				System.out.print("휴대폰번호>");
+				String addPhone = sc.nextLine();
+				System.out.print("충전할 금액>");
+				int addCash = sc.nextInt();
 				
+				//name, phone, cash, star(0으로 초기화)
+				Customer customerAdd = new Customer(addName, addPhone, addCash, 0);
+				cList.add(customerAdd);
+				System.out.println("<회원 등록 되었습니다.>");
 				
-				
+				if(customerAdd.getCash() >= total) {
+					customerAdd.setCash(customerAdd.getCash()-total);
+					System.out.println("잔액은 ["+customerAdd.getCash()+"원] 입니다.");
+					
+					customerAdd.setStar(customerAdd.getStar()+1); //별갯수 추가
+				} else if(customerAdd.getCash() < total) {
+					System.out.println("잔액이 부족합니다.");
+				}
 				
 			} else {
 				System.out.println("카드 결제가 완료되었습니다.");
@@ -101,7 +118,19 @@ public class StarbucksApp {
 		}
 		
 		//프로그램이 끝나기 전에 DB 업데이트
+		Writer cfw = new FileWriter("./customerDB-copy.txt");
+		BufferedWriter cbw = new BufferedWriter(cfw);
 		
+		for(Customer c : cList) {
+			if(c == null) {
+				break;
+			}
+			String line = c.getName() + "," + c.getPhone() + "," + c.getCash() + "," + c.getStar();
+			cbw.write(line);
+			cbw.newLine();
+		}
+		
+		cbw.close();
 		
 		System.out.println("========================================");
 		System.out.println("|       이용해주셔서 감사합니다^^      |");
