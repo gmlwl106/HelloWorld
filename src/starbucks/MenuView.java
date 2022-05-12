@@ -37,6 +37,13 @@ public class MenuView {
 			System.exit(0);
 		}
 	}
+	
+	//종료 출력
+	public void showEnd() {
+		System.out.println("========================================");
+		System.out.println("|       이용해주셔서 감사합니다^^      |");
+		System.out.println("========================================");
+	}
 
 }
 
