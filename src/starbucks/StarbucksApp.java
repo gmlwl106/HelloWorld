@@ -23,7 +23,6 @@ public class StarbucksApp {
 		
 
 		Scanner sc = new Scanner(System.in);
-		sc.nextLine();
 		System.out.print("스타벅스 고객이신가요?(y/n)-> ");
 		String yn = sc.nextLine();
 		
@@ -40,9 +39,12 @@ public class StarbucksApp {
 			
 			if(customer != null) {
 				//결제하고 잔액 출력
-				cManager.payment(customer, total);
+				cManager.payment(customer, total, menuManager.getTotal_baverage());
 			} else {
 				System.out.println("회원정보가 없습니다.");
+				//카드 결제
+				cManager.payment();
+				
 			}
 			
 		
@@ -54,7 +56,7 @@ public class StarbucksApp {
 			//회원 등록
 			if(yesno.equals("y")) {
 				Customer customer = cManager.AddCustomer();
-				cManager.payment(customer, total);
+				cManager.payment(customer, total, menuManager.getTotal_baverage());
 				
 			//회원 등록 하지않고 결제
 			} else {

@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class MenuManager {
 
 	List<Menu> mList;
+	int total_baverage = 0;
 	
 	//생성자
 	public MenuManager() {
@@ -21,6 +22,10 @@ public class MenuManager {
 	//gs
 	public List<Menu> getmList() {
 		return mList;
+	}
+
+	public int getTotal_baverage() {
+		return total_baverage;
 	}
 
 	//메소드
@@ -69,6 +74,7 @@ public class MenuManager {
 				count = sc.nextInt();
 				
 				if(count != 0) {
+					total_baverage += count;
 					break;
 				}
 			}
@@ -80,7 +86,6 @@ public class MenuManager {
 			}
 			
 		}
-		sc.close();
 		return total;
 	}
 }

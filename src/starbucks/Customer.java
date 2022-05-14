@@ -11,6 +11,7 @@ public class Customer {
 	
 	
 	
+	
 	//생성자
 	public Customer() {
 	}

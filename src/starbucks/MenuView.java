@@ -4,6 +4,7 @@ import java.util.List;
 
 public class MenuView {
 
+	
 
 	//메소드 일반
 	//타이틀 출력

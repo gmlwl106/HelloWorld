@@ -88,12 +88,20 @@ public class CustomerManager {
 		System.out.println("카드 결제가 완료되었습니다.");
 	}
 	//충전 금액으로 결제
-	public void payment(Customer customer, int total) {
+	public void payment(Customer customer, int total, int total_b) {
 		if(customer.getCash() >= total) {
+			//충전 금액 수정
 			customer.setCash(customer.getCash()-total);
+			//별 갯수 수정
+			customer.setStar(customer.getStar()+total_b);
+			//잔액 출력
 			System.out.println("잔액은 ["+customer.getCash()+"원] 입니다.");
 			
-			customer.setStar(customer.getStar()+1); //별갯수 추가
+			//별이 10개 이상일때 쿠폰 출력 (별 10개 당 쿠폰 1장)
+			if(customer.getStar() >= 10) {
+				int coupon = customer.getStar()/10;
+				System.out.println("<<아메리카노 무료쿠폰 "+coupon+"장 있습니다>>");
+			}
 		} else if(customer.getCash() < total) {
 			System.out.println("잔액이 부족합니다.");
 		}
@@ -103,7 +111,7 @@ public class CustomerManager {
 	public void writeCustomerDB() {
 		//프로그램이 끝나기 전에 DB 업데이트
 		try {
-			Writer cfw = new FileWriter("./customerDB-copy.txt");
+			Writer cfw = new FileWriter("./customerDB.txt");
 			BufferedWriter cbw = new BufferedWriter(cfw);
 			
 			for(Customer c : cList) {
