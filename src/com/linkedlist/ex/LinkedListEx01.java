@@ -1,4 +1,4 @@
-package com.datastructure.ex;
+package com.linkedlist.ex;
 
 
 public class LinkedListEx01 {
