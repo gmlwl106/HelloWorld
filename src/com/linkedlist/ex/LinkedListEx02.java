@@ -1,4 +1,4 @@
-package com.datastructure.ex;
+package com.linkedlist.ex;
 
 //LinkedList의 Node header를 만들어서
 //첫번째 노드가 삭제되지 않는 문제를 해결
