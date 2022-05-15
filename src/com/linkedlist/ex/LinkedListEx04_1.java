@@ -3,7 +3,7 @@ package com.linkedlist.ex;
 //단방향 LinkedList의 끝에서 k번째의 노드를 찾는 알고리즘
 //방법1
 
-public class LinkedListEx04 {
+public class LinkedListEx04_1 {
 
 	public static void main(String[] args) {
 		LinkedList ll = new LinkedList();
