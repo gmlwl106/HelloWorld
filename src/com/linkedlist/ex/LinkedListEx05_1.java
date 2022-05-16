@@ -5,7 +5,7 @@ package com.linkedlist.ex;
 //단, x는 오른쪽 파트 어디에 놔도 상관없음
 //방법1 -4개의 포인터를 이용해서 큰 숫자와 작은 숫자를 나누고 마지막에 합친다.
 
-public class LinkedListEx05 {
+public class LinkedListEx05_1 {
 	
 	private static class LinkedList {
 		Node header;
