@@ -4,10 +4,10 @@ package com.linkedlist.ex;
 //첫번째 노드가 삭제되지 않는 문제를 해결
 public class LinkedListEx02 {
 	
-	static class LinkedList {
+	private static class LinkedList {
 		Node header;
 		
-		class Node {
+		private class Node {
 			int data;
 			Node next = null;
 		}

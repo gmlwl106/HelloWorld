@@ -3,10 +3,10 @@ package com.linkedlist.ex;
 
 public class LinkedListEx03 {
 	
-	static class LinkedList {
+	private static class LinkedList {
 		Node header;
 		
-		static class Node {
+		private static class Node {
 			int data;
 			Node next = null;
 		}

@@ -3,7 +3,7 @@ package com.linkedlist.ex;
 
 public class LinkedListEx01 {
 
-	static class Node {
+	private static class Node {
 		int data;
 		Node next = null;
 		

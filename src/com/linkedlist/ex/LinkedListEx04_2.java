@@ -4,6 +4,11 @@ package com.linkedlist.ex;
 //방법2 -재귀호출
 
 public class LinkedListEx04_2 {
+	
+	private static class Node {
+		int data;
+		Node next = null;
+	}
 
 	public static void main(String[] args) {
 		LinkedList ll = new LinkedList();

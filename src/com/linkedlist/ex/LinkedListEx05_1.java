@@ -7,6 +7,11 @@ package com.linkedlist.ex;
 
 public class LinkedListEx05_1 {
 	
+	private static class Node {
+		int data;
+		Node next = null;
+	}
+	
 	private static class LinkedList {
 		Node header;
 		
